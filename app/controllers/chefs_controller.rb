@@ -53,10 +53,10 @@ class ChefsController < ApplicationController
         end
         
         def set_chef
-           @chef = Chef.new(chef_params) 
+           @chef = Chef.find(params[:id]) 
         end
         
-        def requre_same_user
+        def require_same_user
             if current_user != @chef
                 flash[:danger] = "You can only edit your own profile"
                 redirect_to root_path
